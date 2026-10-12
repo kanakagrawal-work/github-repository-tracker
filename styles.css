@@ -1,0 +1,561 @@
+:root {
+  color-scheme: light;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  color: #1c2534;
+  background: #f5f7fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --muted: #697487;
+  --line: #e2e7ef;
+  --accent: #5145d8;
+  --accent-dark: #3f35b6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 84% 8%, rgb(222 220 255 / 58%), transparent 27rem),
+    #f5f7fb;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.topbar {
+  height: 76px;
+  padding: 0 max(6vw, calc((100vw - 1120px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(226 231 239 / 75%);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #20283a;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: white;
+  background: var(--accent);
+  font-size: 17px;
+}
+
+.topbar-note,
+.form-hint,
+.page-footer,
+.repo-summary {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.page-shell {
+  width: min(100% - 40px, 940px);
+  margin: 0 auto;
+}
+
+.intro {
+  padding: 74px 0 38px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+h1 {
+  margin-bottom: 13px;
+  font-size: clamp(32px, 5vw, 48px);
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+}
+
+.intro-copy {
+  max-width: 550px;
+  margin: 0 auto;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.lookup-form {
+  width: min(100%, 590px);
+  min-height: 62px;
+  margin: 29px auto 0;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e1e5ef;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 12px 36px rgb(38 47 76 / 8%);
+}
+
+.input-prefix {
+  padding-left: 12px;
+  color: #929bae;
+  font-size: 17px;
+}
+
+.lookup-form input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: #1c2534;
+  font-size: 14px;
+}
+
+.lookup-form input::placeholder,
+.filter-field input::placeholder {
+  color: #9aa3b2;
+}
+
+.primary-button {
+  min-height: 46px;
+  padding: 0 17px;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: var(--accent);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.primary-button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+.primary-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
+.form-hint {
+  margin: 11px 0 0;
+}
+
+.feedback {
+  min-height: 20px;
+  margin: 0 auto 20px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+.feedback.error {
+  color: #b42332;
+}
+
+.results[hidden] {
+  display: none;
+}
+
+.profile-card {
+  min-height: 150px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 7px 22px rgb(38 47 76 / 4%);
+}
+
+.avatar {
+  width: 92px;
+  height: 92px;
+  flex: 0 0 auto;
+  border: 3px solid #f0efff;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.profile-name {
+  margin: 0 0 3px;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+.profile-login {
+  display: inline-block;
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.profile-login:hover,
+.repo-name:hover {
+  color: var(--accent);
+}
+
+.profile-bio {
+  margin: 0;
+  color: #596477;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.profile-meta {
+  margin-top: 11px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.profile-meta a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.profile-meta a:hover {
+  color: var(--accent);
+}
+
+.profile-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat {
+  min-width: 60px;
+  text-align: center;
+}
+
+.stat strong,
+.stat span {
+  display: block;
+}
+
+.stat strong {
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 19px;
+}
+
+.stat span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.repositories-heading {
+  margin: 38px 0 17px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.repositories-heading .eyebrow {
+  margin-bottom: 5px;
+}
+
+.repositories-heading h2 {
+  margin: 0;
+  font-size: 23px;
+  letter-spacing: -0.035em;
+}
+
+.count-pill {
+  margin-left: 3px;
+  padding: 4px 8px;
+  vertical-align: 3px;
+  border-radius: 20px;
+  color: #665be1;
+  background: #eeedff;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
+.refresh-setting {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.refresh-setting input {
+  accent-color: var(--accent);
+}
+
+.repo-tools {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-field,
+.sort-field select {
+  height: 43px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+}
+
+.filter-field {
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: 1;
+  color: #8c95a6;
+}
+
+.filter-field input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: #1c2534;
+  font-size: 13px;
+}
+
+.sort-field select {
+  min-width: 164px;
+  padding: 0 30px 0 12px;
+  color: #4d586b;
+  font-size: 12px;
+}
+
+.repo-summary {
+  margin: 14px 2px 10px;
+  font-size: 12px;
+}
+
+.repository-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.repo-card {
+  min-width: 0;
+  min-height: 158px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: #fff;
+  transition: border-color 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+}
+
+.repo-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbc8f7;
+  box-shadow: 0 8px 20px rgb(38 47 76 / 6%);
+}
+
+.repo-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.repo-name {
+  overflow-wrap: anywhere;
+  color: #292f41;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.repo-visibility {
+  padding: 3px 7px;
+  flex: 0 0 auto;
+  border: 1px solid #e5e8ef;
+  border-radius: 20px;
+  color: #7c8595;
+  font-size: 10px;
+}
+
+.repo-description {
+  min-height: 38px;
+  margin: 9px 0 13px;
+  display: -webkit-box;
+  overflow: hidden;
+  color: #697487;
+  font-size: 12px;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.repo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #778193;
+  font-size: 11px;
+}
+
+.repo-language {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.language-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a69cf5;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 35px 18px;
+  border: 1px dashed #d8ddeb;
+  border-radius: 12px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+}
+
+.page-footer {
+  margin: 48px 0 25px;
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 680px) {
+  .topbar {
+    height: 64px;
+    padding: 0 20px;
+  }
+
+  .topbar-note {
+    max-width: 150px;
+    text-align: right;
+    font-size: 11px;
+  }
+
+  .intro {
+    padding: 56px 0 30px;
+  }
+
+  .lookup-form {
+    flex-wrap: wrap;
+  }
+
+  .lookup-form input {
+    width: calc(100% - 60px);
+    min-height: 40px;
+  }
+
+  .primary-button {
+    width: 100%;
+  }
+
+  .profile-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .avatar {
+    width: 70px;
+    height: 70px;
+  }
+
+  .profile-stats {
+    width: 100%;
+    padding-top: 14px;
+    border-top: 1px solid #edf0f5;
+    justify-content: space-around;
+  }
+
+  .repositories-heading {
+    align-items: flex-start;
+  }
+
+  .repository-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 430px) {
+  .page-shell {
+    width: min(100% - 28px, 940px);
+  }
+
+  .repositories-heading {
+    flex-direction: column;
+  }
+
+  .repo-tools {
+    flex-direction: column;
+  }
+
+  .sort-field select {
+    width: 100%;
+  }
+
+  .page-footer {
+    flex-direction: column;
+  }
+}

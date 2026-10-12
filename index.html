@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>RepoScope — GitHub repository explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="RepoScope home">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>RepoScope</span>
+      </a>
+      <span class="topbar-note">A clear view of any public GitHub profile</span>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">GITHUB PROFILE EXPLORER</p>
+        <h1 id="page-title">Find the work behind a username.</h1>
+        <p class="intro-copy">Browse a developer’s public repositories, languages, and recent activity in one place.</p>
+
+        <form id="lookup-form" class="lookup-form">
+          <label class="visually-hidden" for="username">GitHub username</label>
+          <span class="input-prefix" aria-hidden="true">@</span>
+          <input id="username" name="username" type="text" placeholder="Enter a GitHub username" autocomplete="off" spellcheck="false" required>
+          <button id="lookup-button" class="primary-button" type="submit">Explore profile</button>
+        </form>
+        <p class="form-hint">Public GitHub data only. No sign-in required.</p>
+      </section>
+
+      <section id="feedback" class="feedback" role="status" aria-live="polite"></section>
+
+      <section id="results" class="results" aria-label="GitHub profile results" hidden>
+        <article id="profile-card" class="profile-card"></article>
+
+        <div class="repositories-heading">
+          <div>
+            <p class="eyebrow">THE PROJECTS</p>
+            <h2>Repositories <span id="repo-count" class="count-pill">0</span></h2>
+          </div>
+          <label class="refresh-setting">
+            <input id="auto-refresh" type="checkbox" checked>
+            <span>Refresh every minute</span>
+          </label>
+        </div>
+
+        <div class="repo-tools">
+          <label class="filter-field">
+            <span class="visually-hidden">Filter repositories</span>
+            <span aria-hidden="true">⌕</span>
+            <input id="repo-filter" type="search" placeholder="Filter by name or description">
+          </label>
+          <label class="sort-field">
+            <span class="visually-hidden">Sort repositories</span>
+            <select id="repo-sort">
+              <option value="updated">Recently updated</option>
+              <option value="stars">Most stars</option>
+              <option value="name">Name, A–Z</option>
+            </select>
+          </label>
+        </div>
+
+        <p id="repo-summary" class="repo-summary"></p>
+        <div id="repository-list" class="repository-list"></div>
+      </section>
+
+      <footer class="page-footer">
+        <span>Made for exploring open-source work.</span>
+        <span>Data provided by the GitHub REST API</span>
+      </footer>
+    </main>
+  </body>
+</html>
